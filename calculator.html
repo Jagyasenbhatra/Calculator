@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+    <div class="light">
+        <button class="turn">Turn</button>
+    </div>
+
+    <center>
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" class="calc-display"></td>
+            </tr>
+            <tr>
+                <td><button value="C" onclick="c()">C</button></td>
+                <td><button value="del" onclick="del()">Del</button></td>
+                <td><button value="/" onclick="insert('/')">/</button></td>
+                <td><button value="X" onclick="insert('*')">X</button></td>
+            </tr>
+            <tr>
+                <td><button value="7" onclick="insert(7)">7</button></td>
+                <td><button value="8" onclick="insert(8)">8</button></td>
+                <td><button value="9" onclick="insert(9)">9</button></td>
+                <td><button value="-" onclick="insert('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button value="4" onclick="insert(4)">4</button></td>
+                <td><button value="5" onclick="insert(3)">5</button></td>
+                <td><button value="6" onclick="insert(6)">6</button></td>
+                <td><button value="+" onclick="insert('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button value="1" onclick="insert(1)">1</button></td>
+                <td><button value="2" onclick="insert(2)">2</button></td>
+                <td><button value="3" onclick="insert(3)">3</button></td>
+                <td rowspan="2"><button value="=" class="equal" onclick="eql()">=</button></td>
+                
+            </tr>
+            <tr> 
+                <td colspan="2"><button value="0" class="zero" onclick="insert(0)">0</button></td>
+                <td><button value="." onclick="insert('.')">.</button></td>
+            </tr>
+        </table>
+    </center>
+
+    
+    <script>
+        $('.calc-display').focus(function(){
+            $(this).css("background",'lightblue')
+        })
+        $('.calc-display').mouseout(function(){
+            $(this).css("background",'')
+        })
+           function insert(num)
+           {
+            $('.calc-display').val($('.calc-display').val()+num)
+           }
+           function eql()
+           {
+            $('.calc-display').val(eval($('.calc-display').val()))
+           }
+           function c()
+           {
+               $('.calc-display').val('')
+           }
+           function del()
+           {
+            var  value=$('.calc-display').val()
+            $('.calc-display').val(value.substring(0,value.length-1))
+           }
+
+           $('.turn').click(function(){
+            $('body').toggleClass('dark')
+            $('.light .turn').css('background','white')
+           })
+        
+    </script>
+
+
+</body>
+</html>
