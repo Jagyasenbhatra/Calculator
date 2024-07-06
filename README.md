@@ -1,4 +1,4 @@
-# SMART CALCULATOR
+# SMART CALCULATOR PRO
 ## Features
 1. Enhanced Styling: 
     -  A clean and modern user interface with improved styling for better aesthetics and readability.
